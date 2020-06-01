@@ -76,3 +76,61 @@ function Zeller(D, M, Y) {
     }
     return Day;
 }
+
+//function that return the ankan name
+function ankan(calculator) {
+    var name = "";
+    var day = calculator[0];
+    var gender=calculator[1];
+    if (gender == "Male") {
+        switch (day) {
+            case "Monday":
+                name = "Kwadwo";
+                break;
+            case "Tuesday":
+                name = "Kwabena";
+                break;
+            case "Wednesday":
+                name = "Kwaku";
+                break;
+            case "Thursday":
+                name = "Yaw";
+                break;
+            case "Friday":
+                name = "Kofi";
+                break;
+            case "Saturday":
+                name = "Kwame";
+                break;
+            case "Sunday":
+                name = "Kwasi";
+                break;
+        }
+    } else {
+        switch (day) {
+            case "Monday":
+                name = "Adwoa";
+                break;
+            case "Tuesday":
+                name = "Abenaa";
+                break;
+            case "Wednesday":
+                name = "Akua";
+                break;
+            case "Thursday":
+                name = "Yaa";
+                break;
+            case "Friday":
+                name = "Afua";
+                break;
+            case "Saturday":
+                name = "Ama";
+                break;
+            case "Sunday":
+                name = "Akosua";
+                break;
+
+        }
+    }
+    return name;
+}
