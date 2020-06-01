@@ -5,7 +5,7 @@
 The web application calculates the Ankan Name based on the date the user was born and the gender
 ## Access Link
 * To access the application simply go through the link below.
-* https://github.com/BandLinc/ankan-game
+* https://bandlinc.github.io/ankan-game/
 * The web application opens on all browsers
 ## Known Bugs
 There are currently no bugs in the project. Contributions are welcome.
