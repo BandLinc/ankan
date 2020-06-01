@@ -33,7 +33,7 @@ function myFunction() {
         var day = Zeller(date, month, year);
         var calculator=[day,gender];
         var name=ankan(calculator);
-        alert("You name is : " + name);
+        alert("Your name is : " + name);
     }
 }
 
