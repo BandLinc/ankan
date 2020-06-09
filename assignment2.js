@@ -20,22 +20,55 @@ $(document).ready(function () {
 function myFunction() {
 
     var dob = document.getElementById("datepicker").value;
-
     var gender = document.getElementById("gender").value;
 
-    if (dob == "" || gender == "") {
-        alert("Sorry, you missed to enter the date of birth");
+    if (isValidDate(dob) == false) {
+        if (dob=="") {
+            alert("Sorry, you didn't enter a date");
+        } else {
+            alert("Sorry, you entered an invalid date");
+        }
     } else {
         var d = new Date(dob);
         var date = d.getDate();
         var month = d.getMonth() + 1;
         var year = d.getFullYear();
+
         var day = Zeller(date, month, year);
-        var calculator=[day,gender];
-        var name=ankan(calculator);
-        alert("Congratulations!! Your name is " + name+" because you were born on a "+day+" and you are "+gender+".");
+        var calculator = [day, gender];
+        var name = ankan(calculator);
+        alert("Congratulations!! Your name is " + name + " because you were born on a " + day + " and you are " + gender + ".");
     }
 }
+
+//Validate Date
+// Validates that the input string is a valid date formatted as "mm/dd/yyyy"
+function isValidDate(dateString) {
+    // First check for the pattern
+    if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+        return false;
+
+    // Parse the date parts to integers
+    var parts = dateString.split("/");
+    var day = parseInt(parts[1], 10);
+    var month = parseInt(parts[0], 10);
+    var year = parseInt(parts[2], 10);
+
+    // Check the ranges of month and year
+    if (year < 1000 || year > 3000 || month == 0 || month > 12)
+        return false;
+
+    var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // Adjust for leap years
+    if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+        monthLength[1] = 29;
+
+    // Check the range of the day
+    return day > 0 && day <= monthLength[month - 1];
+}
+
+
 
 //Zeller function that return the day of the week
 function Zeller(D, M, Y) {
@@ -81,7 +114,7 @@ function Zeller(D, M, Y) {
 function ankan(calculator) {
     var name = "";
     var day = calculator[0];
-    var gender=calculator[1];
+    var gender = calculator[1];
     if (gender == "Male") {
         switch (day) {
             case "Monday":
