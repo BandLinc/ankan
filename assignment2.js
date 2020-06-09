@@ -24,7 +24,7 @@ function myFunction() {
     var gender = document.getElementById("gender").value;
 
     if (dob == "" || gender == "") {
-        alert("Sorry, you missed to enter some information");
+        alert("Sorry, you missed to enter the date of birth");
     } else {
         var d = new Date(dob);
         var date = d.getDate();
@@ -33,7 +33,7 @@ function myFunction() {
         var day = Zeller(date, month, year);
         var calculator=[day,gender];
         var name=ankan(calculator);
-        alert("Your name is : " + name);
+        alert("Congratulations!! Your name is " + name+" because you were born on a "+day+" and you are "+gender+".");
     }
 }
 
